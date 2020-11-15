@@ -15,7 +15,7 @@ if(isset($_POST['btnthem']))
 {
 	$tendm=$_POST['tendm'];
 	$dequi=$_POST['dequi'];
-	$insertdm = mysqli_query("INSERT INTO danhmuc VALUES('', '$tendm', '$dequi') ");
+	$insertdm = mysqli_query($link,"INSERT INTO danhmuc VALUES('', '$tendm', '$dequi') ");
 	if($insertdm) {
 		
 		echo "<p align = center>Thêm danh muc <font color='red'><b> $tendm </b></font> thành công!</p>";
@@ -44,13 +44,13 @@ if(isset($_POST['btnthem']))
             	<select name="dequi">
                 	<option value="0">Danh mục chính</option>
                     <?php
-						$show = mysqli_query("SELECT * FROM danhmuc WHERE dequi=0");
+						$show = mysqli_query($link,"SELECT * FROM danhmuc WHERE dequi=0");
 						while($show1 = mysqli_fetch_array($show))
 						{
 							$madm = $show1['madm'];	
 							$tendm = $show1['tendm'];
 							echo "<option value='".$madm."'>".$tendm."</option>";	
-								$show2 = mysqli_query("SELECT * FROM danhmuc WHERE dequi='".$madm."'");
+								$show2 = mysqli_query($link,"SELECT * FROM danhmuc WHERE dequi='".$madm."'");
 								while($show3 = mysqli_fetch_array($show2))
 								{
 									$madm1 = $show3['madm'];	

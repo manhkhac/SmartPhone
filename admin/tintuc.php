@@ -99,8 +99,9 @@
 
 			for($i = 1; $i <= $total_pages; $i++){  
 			if(($page) == $i){  
-			echo "$i&nbsp;";  
-			} else {  
+				if($i<1) {
+					echo "$i&nbsp;";  }} 
+			 else {  
 			echo "<a href=\"".$_SERVER['PHP_SELF']."?admin=hienthitt&page=$i\"><button class='so'>$i</button></a>&nbsp;";  
 			}  
 			}  

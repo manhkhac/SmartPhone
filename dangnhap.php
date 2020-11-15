@@ -52,7 +52,7 @@ if(isset($_POST['login']))
                    echo "
 							<script language='javascript'>
 								alert('Đăng nhập thành công');
-								window.open('index.php','_self', 1);
+								window.location = 'index.php';
 							</script>
 						";
                 }

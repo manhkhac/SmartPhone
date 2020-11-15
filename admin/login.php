@@ -30,6 +30,7 @@ if(isset($_POST['login']))
     $password = MD5($_POST['pass']);
     $sql_check = mysqli_query($link,"select * from nguoidung where username = '$username'");
     $dem = mysqli_num_rows($sql_check);
+
     if($dem == 0)
     {
         echo "<p class='thongbao1'>Tài khoản không tồn tại</p>";
@@ -46,10 +47,13 @@ if(isset($_POST['login']))
 	
 		 while($rows = mysqli_fetch_array($row))
             {
-              $_SESSION['username'] = $username;
-				$_SESSION['phanquyen'] = $row['phanquyen'];
-                echo $_SESSION['phanquyen'];
-				$_SESSION['idnd'] = $row['idnd'];
+                // echo "<pre>";
+                //     print_r($rows);
+                // echo  "</pre>";
+                // die();
+                $_SESSION['username'] = $username;
+				$_SESSION['phanquyen'] = $rows['phanquyen'];
+				$_SESSION['idnd'] = $rows['idnd'];
                 if($rows['phanquyen'] == 0)
                 {
                     
@@ -72,7 +76,7 @@ if(isset($_POST['login']))
 ?>
 <div class="admin_login">
     <form action="" method="post">
-        <label>Tên tài khoản:</label><input type="text" name="user" placeholder=" Username" value="<?php if(isset($username)){ echo $username; } ?>">><br>
+        <label>Tên tài khoản:</label><input type="text" name="user" placeholder=" Username" value="<?php if(isset($username)){ echo $username; } ?>"><br>
         <label>Mật khẩu:</label><input type="password" name="pass" placeholder=" Password"><br>
         <button name="login" class="dangnhap">Đăng nhập</button><button class="thoat"><a href="../index.php">Thoát</a></button>
     </form>

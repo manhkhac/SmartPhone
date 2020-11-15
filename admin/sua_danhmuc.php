@@ -30,14 +30,14 @@ if(isset($_POST['btnthem']))
 	  $m = $_POST['tendm']; //Không đk dùng $_GET[] 
 	  $d = $_POST['dequi'];
       $sql="UPDATE danhmuc SET tendm='".$m."', dequi='".$d."' WHERE madm='".$madm."'"; //chưa khai báo $madm mà đã dùng.
-      mysqli_query($sql);
+      mysqli_query($link,$sql);
 	  mysqli_error();
       header("location:admin.php?admin=hienthidm");
       //exit();
    }
 }
 
-$query=mysqli_query("SELECT * FROM danhmuc WHERE madm= '{$_GET['madm']}' ");  // OK nhé
+$query=mysqli_query($link,"SELECT * FROM danhmuc WHERE madm= '{$_GET['madm']}' ");  // OK nhé
 // Cho vòng lặp vào
 $row=mysqli_fetch_array($query); // chưa có mysqli_query nhé. ở trên có kia. 
 
@@ -63,7 +63,7 @@ $row=mysqli_fetch_array($query); // chưa có mysqli_query nhé. ở trên có k
             <option value="0">Danh mục chính</option>
              <?php 
             $sql1="select * from danhmuc where dequi=0";
-            $rows1=mysqli_query($sql1);
+            $rows1=mysqli_query($link,$sql1);
             while($row1=mysqli_fetch_array($rows1))
             {
             ?>

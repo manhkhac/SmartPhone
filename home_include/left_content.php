@@ -1,7 +1,7 @@
 ﻿
 <div id="danhmucsp">
 	<div class="center">
-		<h4>SẢN PHẨM</h4>
+		<h4>ĐIỆN THOẠI</h4>
 		<?php 
 		$sql="select * from danhmuc where dequi=1";
 		$result=mysqli_query($link,$sql);

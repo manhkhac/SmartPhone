@@ -63,7 +63,7 @@
 						$page = $_GET['page'];  
 						}  
 
-						// Chọn số kết quả trả về trong mỗi trang mặc định là 10 
+						// Chọn số kết quả trả về trong mỗi trang mặc định là 1x 
 						$max_results = 12;  
 
 						// Tính số thứ tự giá trị trả về của đầu trang hiện tại 
@@ -100,7 +100,7 @@
 									?>
 									<div class="moi"><h3>-<?php echo $result['khuyenmai1']?>%</h3></div>
 									<?php } ?>
-									<a href="#"><img  src="img/uploads/<?php echo $result['hinhanh'];?>"></a>				
+									<a href="index.php?content=chitietsp&idsp=<?php echo $result['idsp'] ?>" class="chitiet"><img  src="img/uploads/<?php echo $result['hinhanh'];?>"></a>				
 									<p><a href="#" ><?php echo $result['tensp'];?></a></p>
 									<h4><?php echo number_format(($result['gia']*((100-$result['khuyenmai1'])/100)),0,",",".");?></h4>
 									<div class="button">
@@ -180,6 +180,7 @@
 									<?php } ?>
 							<h1><a href="#"><img  src="img/uploads/<?php echo $row['hinhanh'];?>"></a></h1>				
 							<p><a href="#" ><?php echo $row['tensp'];?></a></p>
+
 							<h4>Giá: <?php echo number_format(($row['gia']*((100-$row['khuyenmai1'])/100)),0,",",".");?></h4>
 							<div class="button">
 										<ul>
@@ -219,7 +220,7 @@
 									<?php } ?>
 							<h1><a href="#"><img  src="img/uploads/<?php echo $row['hinhanh'];?>"></a></h1>				
 							<p><a href="#" ><?php echo $row['tensp'];?></a></p>
-							<h4><?php echo number_format(($row['gia']*((100-$row['khuyenmai1'])/100)),0,",",".");?></h4>
+							<h4>Giá: <?php echo number_format(($row['gia']*((100-$row['khuyenmai1'])/100)),0,",",".");?></h4>
 							<div class="button">
 										<ul>
 											<li>

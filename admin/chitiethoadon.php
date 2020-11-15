@@ -3,7 +3,7 @@
 	include ('../include/connect.php');
 	
     $select = "select * from chitiethoadon where mahd={$_GET['mahd']}";
-    $query = mysqli_query($select);
+    $query = mysqli_query($link,$select);
     $dem = mysqli_num_rows($query);
 ?>
 <div class="quanlysp">
@@ -55,7 +55,23 @@
 ?>
 </table>
 <div id="inhoadon">
-	<p style="float:right; margin-top:10px; padding-right:30px;"><a href="inhd.php?mahd=<?=$_GET['mahd']?>" target="_blank">In hoá đơn</a></p>
+	<!-- <p style="float:right; margin-top:10px; padding-right:30px;"><a href="inhd.php?mahd=<?=$_GET['mahd']?>" target="_blank">In hoá đơn</a></p> -->
+	<div id="check" style="margin-top: 20px; padding-left: 650px;">
+					<p>
+						<a href="inhd.php?mahd=<?=$_GET['mahd']?>" target="_blank">
+							<input type="submit"  value="In hoá đơn" />
+						</a>
+					</p>
+	</div>
+
+	<!-- <form action="phpexcel/export.php" method="POST">
+				<div id="check" style="margin-top: 20px; padding-left: 650px;">
+					<p>
+						<input type="submit" name="btnExport" value="Xuất Excel" />
+					</p>
+				</div>
+				
+	</form> -->
 </div>
 
 

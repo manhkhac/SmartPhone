@@ -19,6 +19,7 @@
 <td><b>Tên sản phẩm</b></td>
 <td><b>Giá</b></td>
 <td><b>Số lượng</b></td>
+<td><b>Khuyến mại</b></td>
 <td><b>Thành tiền</b></td>
 <td><b>Tùy chọn</b></td></tr>
 <?php
@@ -34,20 +35,28 @@
                 $sql = substr($sql,0,-1);
             }
       $sql .=' )order by idsp DESC';
-      $rows=mysqlii_query($link,$sql);
-while($row=mysqlii_fetch_array($rows))
+      $rows=mysqli_query($link,$sql);
+while($row=mysqli_fetch_array($rows))
 {
 ?>
- 
+<?php 
+    $giagoc =  (($row['gia']))*$_SESSION['cart'][$row['idsp']];
+    $giakm =   (($row['gia']*((100-$row['khuyenmai1'])/100))*$_SESSION['cart'][$row['idsp']]) ;
+    $tongkm = $giagoc - $giakm;
+    
+    // echo number_format($tongkm);
+ ?>
+
 
 <form action="index.php?content=cart&action=update&idsp=<?php echo $row['idsp']?>" method="POST" name="update">
 <tr class="sanphamcart">
 <td><p class="carta"><a href="index.php?content=chitietsp&idsp=<?php echo $row['idsp'] ?>"><?php echo $row['tensp']?></a></p></td>
-<td><?php echo number_format(($row['gia']*((100-$row['khuyenmai1'])/100)),0,",",".");?></td>
+<td><?php echo number_format(($row['gia']),0,",",".");?></td>
 <td><input type="text" name="sl" value="<?php echo $_SESSION['cart'][$row['idsp']] ?>" style="width:30px;"/></td>
+<td><?php echo number_format(($tongkm),0,",","."); ?></td>
 <td><?php echo number_format(($row['gia']*((100-$row['khuyenmai1'])/100))*$_SESSION['cart'][$row['idsp']],0,",",".") ?></td>
-<td><p class="xoa"><input type="submit" name="huy" value="Xóa"/>
- <input type="submit" class="submit" value="cập nhập" name="submit"/>
+<td><p style="margin: 5px 0px 5px 0px;" class="xoa"><input type="submit" name="huy" value="Xóa"/><br>
+ <input style="margin-top: 5px;" type="submit" class="submit" value="Cập nhật" name="submit"/>
  </form>
  </p></td>
 </tr>

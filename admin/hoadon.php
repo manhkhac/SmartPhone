@@ -17,7 +17,6 @@
 				<input type="submit" name="giaohang" value="Đã giao hàng" />
 				<input type="submit" name="huy" value="Hủy" />
 				<input type="submit" name="xoa" value="Xóa" />
-
 			</p>
 		</div>
 	
@@ -84,6 +83,15 @@
 ?>
 </table>
 </form>
+			<form action="phpexcel/export.php" method="POST">
+				<div id="check" style="margin-top: 20px; padding-left: 650px;">
+					<p>
+						<input type="submit" name="btnExport" value="Xuất Excel" />
+					</p>
+				</div>
+				
+			</form>
+
 	<div id="phantrang_sp">
 	
 	<?php
@@ -102,13 +110,16 @@
 			echo "<a href=\"".$_SERVER['PHP_SELF']."?admin=hienthihd&page=$prev\"><button class='trang'>Trang trước</button></a>&nbsp;";  
 			}  
 
+			//Hiển thị trang hiện tại
 			for($i = 1; $i <= $total_pages; $i++){  
 			if(($page) == $i){  
-			echo "$i&nbsp;";  
+				if($i>1) {
+						echo "$i&nbsp;";  } 
+				
 			} else {  
 			echo "<a href=\"".$_SERVER['PHP_SELF']."?admin=hienthihd&page=$i\"><button class='so'>$i</button></a>&nbsp;";  
 			}  
-			}  
+			} 
 
 			// Tạo liên kết đến trang tiếp theo  
 			if($page < $total_pages){  

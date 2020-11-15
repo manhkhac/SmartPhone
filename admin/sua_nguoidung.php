@@ -2,7 +2,7 @@
 <?php
 		$idnd=$_GET['idnd'];
         $sql="select * from nguoidung where idnd='".$_GET['idnd']."'";
-         $rows=mysqli_query($sql);
+         $rows=mysqli_query($link,$sql);
          $row=mysqli_fetch_array($rows);
 ?>
 <form action="update_nguoidung.php?idnd=<?php echo $idnd;?>" method="post" name="frm" onsubmit="return kiemtra()" enctype="multipart/form-data">
@@ -23,7 +23,7 @@
             	<td>Điện thoại</td><td><input type="text" name="dienthoai"  value="<?php echo $row['dienthoai'] ?>"/></td>
             </tr>
 			<tr>
-            	<td>Quền</td><td>
+            	<td>Quyền</td><td>
 					<select name="phanquyen">
 								<option value="0" > 0 </option>
 								<option value="1" selected="selected"> 1 </option>

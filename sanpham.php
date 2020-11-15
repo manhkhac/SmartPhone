@@ -1,6 +1,4 @@
-﻿					
-
-   
+﻿
 		<?php 
 	   $sql="select * from danhmuc where dequi=1 order by madm";
 	   $result=mysqli_query($link,$sql);

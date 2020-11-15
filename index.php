@@ -1,4 +1,4 @@
-<base href="http://localhost/Github/dienthoai_PHP2/" />
+<base href="http://localhost/dienthoai_PHP/" />
 <?php 
 session_start();
 include("include/connect.php");?>
@@ -135,13 +135,13 @@ e.preventDefault();
 		<div id="content">
 			<div id="lofslidecontent45" class="lof-slidecontent" style="width:1000px; height:350px;">
 				<div class="preload"><div></div></div>
-				<div id="lof-main-outer">
+				<div id="lof-main-outer"> 
 					<ul class="lof-main-wapper">
-						<li><img src="img/slide/slide1.png" width="1000" height="350"></li>
-						<li><img src="img/slide/slide.png" width="1000" height="350"></li>
-						<li><img src="img/slide/slide2.png" width="1000" height="350"></li>
+						<li><img src="img/slide/3.png" width="1000" height="350"></li>
+						<li><img src="img/slide/4.png" width="1000" height="350"></li>
+						<li><img src="img/slide/1.png" width="1000" height="350"></li>
 						<li><img src="img/slide/slide3.png" width="1000" height="350"></li>
-						<li><img src="img/slide/slide4.png" width="1000" height="350"></li>
+						<li><img src="img/slide/2.png" width="1000" height="350"></li>
 					</ul>
 				</div>
 				<div class="lof-navigator-wapper">
@@ -149,11 +149,11 @@ e.preventDefault();
 					<div onClick="return false" href="" class="lof-next">Next</div>
 					<div class="lof-navigator-outer">
 						<ul class="lof-navigator">
-							<li><img src="img/slide/slide1.png" width="70" height="25" /></li>       		
-							<li><img src="img/slide/slide.png" width="70" height="25" /></li>       		
+							<li><img src="img/slide/3.png" width="70" height="25" /></li>       		
+							<li><img src="img/slide/4.png" width="70" height="25" /></li>       		
 							<li><img src="img/slide/slide2.png" width="70" height="25" /></li>       		
-							<li><img src="img/slide/slide3.png" width="70" height="25" /></li>       		
-							<li><img src="img/slide/slide4.png" width="70" height="25" /></li>       		
+							<li><img src="img/slide/1.png" width="70" height="25" /></li>       		
+							<li><img src="img/slide/2.png" width="70" height="25" /></li>       		
 						</ul>
 					</div>
 					<div onClick="return false" href="" class="lof-previous">Previous</div>
@@ -224,11 +224,11 @@ e.preventDefault();
 						</div><!-- End .lg-footer -->
 						<div id="noidung">
 							<ul>
-								<li><span id="tencongty">Công Ty TNHH ĐIỆN THOẠI DEVFORUM</span></li> <br>
+								<li><span id="tencongty">Công Ty TNHH ĐIỆN THOẠI SMARTSTORE</span></li> <br>
 								
 								<li>Địa chỉ: Lĩnh Nam - Hoàng Mai - Hà Nội </li>
-								<li>Điện thoại: 0988888888 - Hotline:  0986868686</li>
-								<li>Email:  support@devforum.info</li>
+								<li>Điện thoại: 0988.888.888 - Hotline:  0986.86.86.86</li>
+								<li>Email:  support@smartstore.press</li>
 							</ul>
 						</div><!-- End .noidung -->
 						<div id="thanhngang">

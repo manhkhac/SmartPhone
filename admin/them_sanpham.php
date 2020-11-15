@@ -34,14 +34,19 @@
 		$file__name__=$dmyhis.$file_name;
 		move_uploaded_file($file_tmp,$upload_image.$file__name__);
 		$madm=$_POST['madm'];
-		$insert="INSERT INTO sanpham VALUES('', '$ten_sanpham', '$file__name__', '$mau', '$chitiet', '$soluong','0', '$gia', '$khuyenmai1', '$khuyenmai2', '$madm', '$ngay','0')";
-		$query=mysqli_query($insert);
+		//$idnsx=$_POST['idnsx'];
+		
+		$insert="INSERT INTO sanpham VALUES('', '$ten_sanpham' , '$madm', '$file__name__', '$mau', '$chitiet', '$soluong','0', '$gia', '$khuyenmai1', '$khuyenmai2', '$ngay','0')";
+
+		// echo $insert;
+		// die();
+		$query=mysqli_query($link,$insert);
 		if($query) {
 			echo "<p align = center>Thêm sản phẩm thành công!</p>";
 			echo '<meta http-equiv="refresh" content="1;url=admin.php?admin=themsp">';
 		}
-			else { echo "Thất bại";
-			}
+		else { echo "Thất bại";
+		}
 }
 
 
@@ -82,13 +87,13 @@
                 	<select name="madm">
                 	<option value="">Chọn danh muc</option>
                     <?php
-						$show = mysqli_query("SELECT * FROM danhmuc WHERE dequi=0");
+						$show = mysqli_query($link,"SELECT * FROM danhmuc WHERE dequi=0");
 						while($show1 = mysqli_fetch_array($show))
 						{
 							$madm1 = $show1['madm'];	
 							$tendm1 = $show1['tendm'];
 							echo "<option value='".$madm1."'>".$tendm1."</option>";	
-								$show2 = mysqli_query("SELECT * FROM danhmuc WHERE dequi='".$madm1."'");
+								$show2 = mysqli_query($link,"SELECT * FROM danhmuc WHERE dequi='".$madm1."'");
 								while($show3 = mysqli_fetch_array($show2))
 								{
 									$madm2 = $show3['madm'];	
@@ -101,6 +106,30 @@
                 
                 </td>
             </tr>
+            <!-- <tr>
+            	<td>Mã NSX</td><td>
+                	<select name="idnsx">
+                	<option value="">Chọn nhà sản xuất</option>
+                    <?php
+						$show = mysqli_query($link,"SELECT * FROM nhasx");
+						while($show1 = mysqli_fetch_array($show))
+						{
+							$idnsx1 = $show1['idnsx'];	
+							$tennsx = $show1['tennsx'];
+							echo "<option value='".$madm1."'>".$tendm1."</option>";	
+								$show2 = mysqli_query($link,"SELECT * FROM nhasx");
+								while($show3 = mysqli_fetch_array($show2))
+								{
+									$idnsx2 = $show3['idnsx'];	
+									$tennsx2 = $show3['tennsx'];
+									echo "<option value='".$idnsx2."'> - ".$tennsx2."</option>";
+								}
+						}
+                	?>
+                
+                
+                </td>
+            </tr> -->
             <tr>
                 <td colspan=2 class="input"> <input type="submit" name="submit" value="Thêm" />
                 <input type="reset" name="" value="Hủy" /></td>

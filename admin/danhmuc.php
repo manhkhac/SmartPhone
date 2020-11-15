@@ -7,7 +7,7 @@
 </head>
 <?php
 	include '../include/connect.php';
-	$hienthi = mysqli_query($link,"SELECT * FROM danhmuc");
+	$hienthi = mysqli_query($link,"SELECT * FROM danhmuc ORDER BY dequi=2");
 			 $dem = mysqli_num_rows($hienthi);
 ?>
 <div class="quanlysp">

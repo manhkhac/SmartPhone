@@ -9,7 +9,7 @@
 		$dienthoai =$_POST['dienthoai'];
 		$noidung =$_POST['noidung'];
 		$ngay=date("Y").":".date("m").":".date("d").":".date("H").":".date("i").":".date("s");
-		$insert=mysqli_query("insert into hotro values('','$chude','$noidung','$hoten','$dienthoai','$email','$ngay')");
+		$insert=mysqli_query($link,"insert into hotro values('','$chude','$noidung','$hoten','$dienthoai','$email','$ngay')");
 		if($insert)
 			redirect("index.php","Cảm ơn bạn đã góp ý. Chúng tôi sẽ trả lời bạn sớm nhất có thể", 2);
 		else

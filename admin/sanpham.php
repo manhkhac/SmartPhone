@@ -105,7 +105,7 @@
 			$prev = ($page - 1);  
 			echo "<a href=\"".$_SERVER['PHP_SELF']."?admin=hienthisp&page=$prev\"><button class='trang'>Trang trước</button></a>&nbsp;";  
 			}  
-
+			//Hiển thị trang hiện tại
 			for($i = 1; $i <= $total_pages; $i++){  
 			if(($page) == $i){  
 				if($i>1) {
